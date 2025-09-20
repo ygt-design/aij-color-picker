@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIJ Logo Color Picker</title>
+    <style>
+        html,
+        body {
+            margin: 16px;
+            padding: 0;
+            background: #fff;
+            color: #000;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            max-width: 960px;
+            margin: 16px auto;
+        }
+
+        .svg-option.active {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .svg-option {
+            border-radius: 4px !important;
+            cursor: pointer;
+            transition: background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .svg-option:hover {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        #svgMount {
+            border-radius: 4px;
+        }
+
+        input[type="color"],
+        input[type="text"] {
+            border-radius: 4px !important;
+        }
+
+        .hud {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            background: #fff;
+            padding: 10px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            color: #111827;
+        }
+
+        .row {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            color: #111827;
+        }
+
+        .section-title {
+            color: #111827;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            font-size: 14px;
+        }
+
+        .btn {
+            appearance: none;
+            background: #fff;
+            color: #111827;
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color .15s, color .15s, border-color .15s;
+        }
+
+        .btn:hover {
+            background: #111827;
+            color: #fff;
+            border-color: #111827;
+        }
+
+        .btn.active {
+            background: #111827;
+            color: #fff;
+            border-color: #111827;
+        }
+
+        .box {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: #fff;
+            padding: 16px;
+        }
+
+        .field {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 6px 8px;
+            color: #111827;
+            background: #fff;
+        }
+
+        .field[type="color"] {
+            padding: 0;
+            height: 32px;
+            width: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hud">
+        <div>HEX: <span id="hexVal">#4F46E5</span></div>
+        <div>RGB: <span id="rgbVal">79, 70, 229</span></div>
+    </div>
+
+
+    <h2 class="section-title">Choose a Logo:</h2>
+    <div class="row">
+        <button class="svg-option btn active" data-svg="./assets/aij-1-transparentseamless.svg">With Highlight</button>
+        <button class="svg-option btn" data-svg="./assets/aij-2seamless.svg">With Filled Highlights</button>
+        <button class="svg-option btn" data-svg="./assets/aij-3seamless.svg">Solid Original Vector</button>
+    </div>
+
+    <div id="svgMount" data-src="./assets/aij-1-transparentseamless.svg" class="box" style="margin:20px 0;"></div>
+
+    <div class="row">
+        <div class="stack">
+            <h2 class="section-title">SVG Color</h2>
+            <label class="label">Picker</label>
+            <input type="color" id="colorPicker" value="#4F46E5" class="field" />
+            <label class="label">Hex</label>
+            <input type="text" id="hexInput" value="#4F46E5" placeholder="#RRGGBB" class="field" />
+        </div>
+        <div class="stack">
+            <h2 class="section-title">Background</h2>
+            <label class="label">Picker</label>
+            <input type="color" id="bgColorPicker" value="#ffffff" class="field" />
+            <label class="label">Hex</label>
+            <input type="text" id="bgHexInput" value="#ffffff" placeholder="#RRGGBB" class="field" />
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

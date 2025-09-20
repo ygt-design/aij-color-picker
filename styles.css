@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Color Display (Top Right) */
+.color-display {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.color-info div {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.color-info div:last-child {
+    margin-bottom: 0;
+}
+
+#hexVal, #rgbVal {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #4F46E5;
+}
+
+/* Main Content */
+.main-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* SVG Selector */
+.svg-selector {
+    margin-bottom: 40px;
+}
+
+.svg-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.svg-option {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.svg-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.svg-option.active {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+}
+
+/* SVG Container */
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: rgba(248, 250, 252, 0.8);
+    border-radius: 15px;
+    border: 2px dashed rgba(79, 70, 229, 0.2);
+    min-height: 300px;
+}
+
+#svgMount {
+    max-width: 100%;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#svgMount svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Color Controls */
+.color-controls {
+    text-align: center;
+}
+
+.color-inputs {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+#colorPicker {
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#colorPicker:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#hexInput {
+    padding: 12px 16px;
+    border: 2px solid rgba(79, 70, 229, 0.2);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: all 0.3s ease;
+    width: 120px;
+}
+
+#hexInput:focus {
+    outline: none;
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .color-display {
+        position: static;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .color-inputs {
+        gap: 20px;
+    }
+    
+    .svg-options {
+        gap: 10px;
+    }
+    
+    .svg-option {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
