@@ -92,7 +92,7 @@ function applyBackgroundColor(mount, hex) {
     try {
       currentSvg = await inlineAndPrepareSVG(mount);
 
-      const currentHex = normalizeHex(picker.value) || "#4F46E5";
+      const currentHex = normalizeHex(picker.value) || "#D1D1D1";
       applyColor(currentSvg, currentHex);
     } catch (err) {
       console.error(err);
@@ -104,14 +104,14 @@ function applyBackgroundColor(mount, hex) {
 
   await loadSVG(mount.dataset.src || "./assets/aij-1seamless.svg");
 
-  const startHex = normalizeHex(picker.value) || "#4F46E5";
+  const startHex = normalizeHex(picker.value) || "#D1D1D1";
   picker.value = startHex;
   hexInput.value = startHex;
   if (currentSvg) {
     applyColor(currentSvg, startHex);
   }
 
-  const startBgHex = normalizeHex(bgColorPicker.value) || "#ffffff";
+  const startBgHex = normalizeHex(bgColorPicker.value) || "#1F1F1F";
   bgColorPicker.value = startBgHex;
   bgHexInput.value = startBgHex;
   applyBackgroundColor(mount, startBgHex);
