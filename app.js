@@ -46,10 +46,14 @@ async function inlineAndPrepareSVG(mount) {
 
   if (src.includes("dotrefienemnts") || src.includes("dot-starrefienemnts")) {
     svg.style.transform = "scale(0.35)";
-    svg.style.transformOrigin = "center";
+    svg.style.transformOrigin = "top left";
+    svg.style.marginLeft = "25%";
     mount.style.minHeight = "120px";
     mount.style.height = "120px";
   } else {
+    svg.style.transform = "";
+    svg.style.transformOrigin = "";
+    svg.style.marginLeft = "";
     mount.style.minHeight = "";
     mount.style.height = "";
   }
