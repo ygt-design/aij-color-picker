@@ -45,7 +45,7 @@ async function inlineAndPrepareSVG(mount) {
   svg.querySelectorAll("style").forEach((style) => style.remove());
 
   if (src.includes("dotrefienemnts") || src.includes("dot-starrefienemnts")) {
-    svg.style.transform = "scale(0.5)";
+    svg.style.transform = "scale(0.35)";
     svg.style.transformOrigin = "center";
   }
 
@@ -59,7 +59,12 @@ function applyColor(svg, hex) {
 
     if (fill && fill.toLowerCase() !== "none") {
       el.setAttribute("fill", hex);
-    } else if (el.tagName === "path" || el.tagName === "circle" || el.tagName === "rect" || el.tagName === "polygon") {
+    } else if (
+      el.tagName === "path" ||
+      el.tagName === "circle" ||
+      el.tagName === "rect" ||
+      el.tagName === "polygon"
+    ) {
       el.setAttribute("fill", hex);
     }
 
