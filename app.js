@@ -45,17 +45,21 @@ async function inlineAndPrepareSVG(mount) {
   svg.querySelectorAll("style").forEach((style) => style.remove());
 
   if (src.includes("dotrefienemnts") || src.includes("dot-starrefienemnts")) {
-    svg.style.transform = "scale(0.35)";
-    svg.style.transformOrigin = "top left";
-    svg.style.marginLeft = "25%";
-    mount.style.minHeight = "120px";
-    mount.style.height = "120px";
+    svg.style.transform = "scale(0.25)";
+    svg.style.transformOrigin = "center";
+    mount.style.minHeight = "250px";
+    mount.style.height = "250px";
+    mount.style.display = "flex";
+    mount.style.alignItems = "center";
+    mount.style.justifyContent = "center";
   } else {
     svg.style.transform = "";
     svg.style.transformOrigin = "";
-    svg.style.marginLeft = "";
     mount.style.minHeight = "";
     mount.style.height = "";
+    mount.style.display = "";
+    mount.style.alignItems = "";
+    mount.style.justifyContent = "";
   }
 
   return svg;
